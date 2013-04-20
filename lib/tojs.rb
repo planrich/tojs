@@ -1,8 +1,8 @@
 
 require "tojs/hook"
-require "tojs/rake"
 
 module ToJs
+  extend self
   def preprocess paths, data
     json = {}
     paths.each do |lp|

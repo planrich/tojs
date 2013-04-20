@@ -1,4 +1,7 @@
+require 'tojs'
+
 namespace :tojs do
+
   desc "precompile the translations"
   task :precompile => [:environment] do
     javascript = ToJs::preprocess ::I18n.load_path, ''
@@ -11,4 +14,5 @@ namespace :tojs do
     file.write(javascript)
     file.close()
   end
+
 end
