@@ -5,11 +5,11 @@ module I18nJs
       next unless Rails.env.development?
       
       Rails.application.assets.register_preprocessor "application/javascript", :"i18n-js-preproc" do |context,data|
-        puts context.inspect
         if context.logical_path == "i18n"
           json = {}
           ::I18n.load_path.each do |lp|
-            y = YAML.load(File.read(lp))
+            context.depend_on(lp)
+            y = YAML.load(File.open(lp,'r'))
             y.each do |k,v|
               json[k] ||= {}
               json[k].merge! v
@@ -17,9 +17,6 @@ module I18nJs
           end
           "window.i18n = {}; i18n._trans = " + json.to_json + "\n" + data
         else
-          ::I18n.load_path.each do |lp|
-            puts "#{lp}"
-          end
           data
         end
       end
