@@ -1,6 +1,7 @@
 /*
  * i18n.js
  */
+//=require 'i18n/translation'
 
 i18n.defaultLocale = 'de';
 i18n.defaultLang = 'de';
