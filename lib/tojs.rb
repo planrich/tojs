@@ -12,6 +12,6 @@ module ToJs
         json[k].merge! v
       end
     end
-    "window.i18n = {}; i18n._trans = " + json.to_json + "\n" + data
+    data + "i18n._trans = " + json.to_json + "\n"
   end
 end

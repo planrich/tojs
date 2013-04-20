@@ -1,12 +1,6 @@
 module ToJs
   class Engine < ::Rails::Engine
-    rake_tasks do
-      load "tasks/tojs_tasks.rake"
-    end
-
     initializer "tojs.asset_dependencies", :after => "sprockets.environment" do
-      #next unless Rails.env.development?
-      
       Rails.application.assets.register_preprocessor "application/javascript", :"tojs-preproc" do |context,data|
         if context.logical_path == "tojs/translation"
           ::I18n.load_path.each do |path|
