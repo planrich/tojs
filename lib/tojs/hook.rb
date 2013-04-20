@@ -7,7 +7,7 @@ module ToJs
             context.depend_on path
           end
 
-          ToJs::preprocess ::I18n.load_path, ''
+          ToJs::preprocess ::I18n.load_path, data
         else
           data
         end
