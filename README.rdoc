@@ -1,3 +1,0 @@
-= I18nJs
-
-This project rocks and uses MIT-LICENSE.

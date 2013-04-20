@@ -1,3 +1,3 @@
-module I18nJs
+module ToJs
   VERSION = "0.0.1"
 end
