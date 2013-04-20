@@ -1,2 +1,2 @@
 
-windrow.i18n = {};
+window.i18n = {};
